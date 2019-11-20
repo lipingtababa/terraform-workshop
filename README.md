@@ -2,6 +2,9 @@
 
 ## Install Terraform
 https://www.terraform.io/downloads.html
+wget the right binary
+unzip it 
+Add the directory of binary to PATH
 
 
 ## Init the local environment for terraform to run commands
