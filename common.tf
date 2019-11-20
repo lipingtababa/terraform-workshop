@@ -34,5 +34,5 @@ variable "subnet_name"{
 }
 
 variable "ami_id" {
-  default = "cbe0df31-1150-488a-a9b2-612c745e1be0"
+  default = "b0c2b3e0-6a1f-499b-9df0-4d1b2e374a54"
 }

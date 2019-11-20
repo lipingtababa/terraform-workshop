@@ -28,6 +28,7 @@ resource "huaweicloud_vpc_v1" "vpc" {
 }
 
 resource "huaweicloud_vpc_subnet_v1" "subnet_1" {
+  name = "subnet_1"
   vpc_id = "${huaweicloud_vpc_v1.vpc.id}"
   cidr   = "192.168.199.0/24"
   gateway_ip = "192.168.199.1"
@@ -35,9 +36,9 @@ resource "huaweicloud_vpc_subnet_v1" "subnet_1" {
 
 resource "huaweicloud_compute_instance_v2" "workshop-staging" {
   name              = "workshop-staging"
-  availability_zone = "AZ1"
+  availability_zone = "ap-southeast-3a"
   image_id = var.ami_id
-  flavor_name = "c3.large.4"
+  flavor_name = "c3.large.2"
   security_groups = ["default"]
 
   network {
