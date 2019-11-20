@@ -2,15 +2,6 @@ variable "region"{
   default = "ap-southeast-3"
 }
 
-variable "access_key"{
-}
-
-variable "secret_key"{
-}
-
-variable "domain_name"{
-}
-
 # Configure the HuaweiCloud Provider
 provider "huaweicloud" {
   access_key = var.access_key
