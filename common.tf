@@ -29,6 +29,10 @@ variable "vpc_cidr" {
   default = "192.168.0.0/16"
 }
 
+variable "subnet_name"{
+  default = "bss_subnet"
+}
+
 variable "ami_id" {
   default = "cbe0df31-1150-488a-a9b2-612c745e1be0"
 }

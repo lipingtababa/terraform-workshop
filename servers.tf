@@ -23,8 +23,14 @@ resource "huaweicloud_compute_volume_attach_v2" "workshop-staging-qpackage" {
 }
 
 resource "huaweicloud_vpc_v1" "vpc" {
-  name = "${var.vpc_name}"
-  cidr = "${var.vpc_cidr}"
+  name       = var.vpc_name
+  cidr       = "192.168.199.0/24"
+}
+
+resource "huaweicloud_vpc_subnet_v1" "subnet_1" {
+  vpc_id = "${huaweicloud_vpc_v1.vpc.id}"
+  cidr   = "192.168.199.0/24"
+  gateway_ip = "192.168.199.1"
 }
 
 resource "huaweicloud_compute_instance_v2" "workshop-staging" {
@@ -35,8 +41,7 @@ resource "huaweicloud_compute_instance_v2" "workshop-staging" {
   security_groups = ["default"]
 
   network {
-    name = "${huaweicloud_vpc_v1.vpc.name}"
+   uuid= "${huaweicloud_vpc_subnet_v1.subnet_1.id}"
   }
 
-  depends_on = [huaweicloud_vpc_v1.vpc]
 }
